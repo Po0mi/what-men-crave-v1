@@ -35,10 +35,10 @@ export function useStoryAnimation() {
       if (textElements.length) {
         gsap.from(textElements, {
           opacity: 0,
-          y: 25, // Slightly larger movement for elegance
+          y: 25,
           duration: 0.7,
-          stagger: 0.15, // Smooth cascade effect
-          ease: "power3.out", // Smoother easing
+          stagger: 0.15,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: el.querySelector(".story-body"),
             start: "top 75%",
@@ -48,13 +48,12 @@ export function useStoryAnimation() {
       }
 
       // 3. Blockquote (The "Pull Quote")
-      // This needs to stand out. We slide it in from the left with a slight rotation or scale for impact.
       const pull = el.querySelector(".story-pull");
       if (pull) {
         gsap.from(pull, {
-          x: -40, // Slide from left
+          x: -40,
           opacity: 0,
-          scale: 0.98, // Subtle zoom in
+          scale: 0.98,
           duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
@@ -66,21 +65,35 @@ export function useStoryAnimation() {
       }
 
       // 4. Emphasis on Story-Turn Paragraphs
-      // These are likely short, punchy sentences (e.g., "They are wrong.")
-      // We give them a subtle "pop" effect to grab attention.
-      el.querySelectorAll(".story-turn").forEach((turn) => {
-        gsap.from(turn, {
-          scale: 0.95,
-          opacity: 0,
-          duration: 0.5,
-          ease: "back.out(1.2)", // Subtle bounce
+      // FIXED: Using a timeline for cleaner execution and avoiding scale on inline text
+      const turns = el.querySelectorAll(".story-turn");
+
+      if (turns.length > 0) {
+        // Create a master timeline for all turn elements
+        const turnTl = gsap.timeline({
           scrollTrigger: {
-            trigger: turn,
-            start: "top 85%",
+            trigger: el.querySelector(".story-body"), // Trigger when the whole section is visible
+            start: "top 60%", // Start slightly earlier so they are ready when user reads them
             once: true,
           },
         });
-      });
+
+        turns.forEach((turn) => {
+          // Animate Opacity and Y position only.
+          // Avoiding Scale prevents layout jitter on inline elements.
+          turnTl.from(
+            turn,
+            {
+              opacity: 0,
+              y: 10, // Subtle upward movement
+              duration: 0.5,
+              ease: "power2.out",
+              force3D: true, // Improves performance
+            },
+            "-=0.2",
+          ); // Overlap slightly for a continuous flow feel
+        });
+      }
     }, el);
 
     return () => ctx.revert();
