@@ -3,6 +3,7 @@ import { Newsreader, Inter } from "next/font/google";
 import "./globals.css";
 import "@/styles/styles.scss";
 import Navbar from "@/layouts/Navbar";
+import Footer from "@/layouts/Footer";
 
 // 1. Headlines: Newsreader (Serif) - Elegant, Editorial, Trustworthy
 const newsreader = Newsreader({
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

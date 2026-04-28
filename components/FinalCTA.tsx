@@ -1,17 +1,25 @@
+"use client";
+import { useFinalCTAAnimation } from "@/hooks/useFinalCTAAnimation"; // Adjust path
 import "./FinalCTA.scss";
 
 const FinalCTA = () => {
+  const { containerRef } = useFinalCTAAnimation();
+
   return (
     <section className="final-cta">
-      <div className="final-cta-container">
+      {/* Attach ref here */}
+      <div className="final-cta-container" ref={containerRef}>
         {/* Two choices */}
         <h2 className="final-cta-heading">You have two choices.</h2>
 
         <div className="final-cta-paths">
+          {/* Option A Card */}
           <div className="final-cta-path final-cta-path--no">
             <span className="path-marker">Option A</span>
             <p>Keep guessing. Keep wondering. Keep managing.</p>
           </div>
+
+          {/* Option B Card */}
           <div className="final-cta-path final-cta-path--yes">
             <span className="path-marker">Option B</span>
             <p>Get the map. Let him feel truly, deeply wanted.</p>

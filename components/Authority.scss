@@ -1,5 +1,5 @@
 .authority {
-  background-color: #1a1a1a;
+  background-color: #111111;
   border-top: 1px solid color-mix(in srgb, #f9f7f2 8%, transparent);
 
   .authority-container {
@@ -14,7 +14,6 @@
 
   /* ── Text column ───────────────────────────── */
   .authority-content {
-    // Reduced from 10rem/8rem to be more reasonable, but still spacious
     padding: 8rem 0 6rem;
   }
 
@@ -64,12 +63,6 @@
     margin-top: 3rem;
     padding-top: 2.5rem;
     border-top: 1px solid color-mix(in srgb, #f9f7f2 8%, transparent);
-
-    // Mobile: Stack stats or reduce gap if they wrap
-    @media (max-width: 480px) {
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
   }
 
   .authority-stat {
@@ -102,7 +95,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    padding: 6rem 0 4rem; // Reduced padding
+    padding: 6rem 0 4rem;
   }
 
   .authority-photo-wrapper {
@@ -111,7 +104,6 @@
     overflow: hidden;
     border-radius: 2px;
 
-    // Ensure image covers well on mobile
     img {
       object-fit: cover;
       width: 100%;
@@ -124,24 +116,28 @@
   // Tablet Breakpoint
   @media (max-width: 900px) {
     .authority-container {
-      grid-template-columns: 1fr; // Stack vertically
+      grid-template-columns: 1fr;
       gap: 3rem;
       padding: 0 1.5rem;
     }
 
     .authority-content {
-      padding: 4rem 0 0; // Remove bottom padding, let gap handle spacing
-      order: 2; // Optional: Put text below image on tablet? Remove if you want text first.
+      padding: 4rem 0 0;
+      order: 2;
     }
 
     .authority-media {
-      padding: 4rem 0 0; // Remove bottom padding
-      order: 1; // Image first on tablet
+      padding: 4rem 0 0;
+      order: 1;
     }
 
     .authority-photo-wrapper {
-      max-width: 100%; // Allow full width on tablet
-      aspect-ratio: 16 / 9; // Wider aspect ratio for tablet looks better
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .authority-stats {
+      gap: 2rem;
     }
   }
 
@@ -153,7 +149,7 @@
 
     .authority-content {
       padding: 2rem 0 0;
-      text-align: left; // Keep left aligned or change to center if preferred
+      text-align: left;
     }
 
     .authority-media {
@@ -161,7 +157,7 @@
     }
 
     .authority-name {
-      font-size: 2rem; // Fixed size for mobile consistency
+      font-size: 2rem;
       margin-bottom: 1.5rem;
     }
 
@@ -170,14 +166,30 @@
       line-height: 1.6;
     }
 
+    /* ── Mobile Stats Fix ────────────────────── */
     .authority-stats {
-      margin-top: 2rem;
-      padding-top: 2rem;
-      gap: 1.5rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      gap: 1.25rem; // Tighter gap
+      justify-content: space-between; // Distribute evenly
+    }
+
+    .authority-stat {
+      gap: 0.2rem; // Less vertical space between number and label
     }
 
     .authority-stat-number {
-      font-size: 1.75rem;
+      font-size: 1.5rem; // Smaller number
+    }
+
+    .authority-stat-label {
+      font-size: 0.6rem; // Smaller label
+      letter-spacing: 0.1em;
+
+      // Allow wrapping if the label is very long, but try to keep it tight
+      white-space: normal;
+      line-height: 1.2;
+      max-width: 80px; // Constrain width to prevent pushing other stats out
     }
   }
 }

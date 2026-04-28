@@ -1,3 +1,5 @@
+"use client";
+import { useFrameworkAnimation } from "@/hooks/useFrameworkAnimation"; // Adjust path
 import "./Framework.scss";
 
 const cravings = [
@@ -9,12 +11,12 @@ const cravings = [
   {
     number: "02",
     title: "Desire (Not Just Receptivity)",
-    body: "Men are starving to feel wanted. Learn how to show him you desire HIM—not just the act of sex. The difference between 'willingness' and 'hunger' changes everything.",
+    body: "Men are starving to feel wanted. Learn how to show him you desire HIM, not just the act of sex. The difference between 'willingness' and 'hunger' changes everything.",
   },
   {
     number: "03",
     title: "Confidence & Ownership",
-    body: "Stop making your pleasure a puzzle he has to solve. How to own your arousal without apology—and why guiding his hand is the hottest form of communication.",
+    body: "Stop making your pleasure a puzzle he has to solve. How to own your arousal without apology, and why guiding his hand is the hottest form of communication.",
   },
   {
     number: "04",
@@ -34,14 +36,17 @@ const cravings = [
   {
     number: "07",
     title: "The Aftermath (The Bonding Window)",
-    body: "The 30 seconds after sex are when emotional attachment happens—or fails. How to close the experience so he feels closer, safer, and more connected to you.",
+    body: "The 30 seconds after sex are when emotional attachment happens, or fails. How to close the experience so he feels closer, safer, and more connected to you.",
   },
 ];
 
 const Framework = () => {
+  const { containerRef } = useFrameworkAnimation();
+
   return (
     <section className="framework">
-      <div className="framework-container">
+      {/* Attach ref here */}
+      <div className="framework-container" ref={containerRef}>
         <div className="framework-intro">
           <span className="framework-eyebrow">The Framework</span>
           <h2 className="framework-heading">The 7 Unspoken Cravings</h2>
@@ -69,7 +74,7 @@ const Framework = () => {
         </ol>
 
         <div className="framework-cta">
-          <a href="#" className="framework-btn">
+          <a href="#value-stack" className="framework-btn">
             Show Me The 7 Cravings - $37
           </a>
         </div>

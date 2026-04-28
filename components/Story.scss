@@ -2,11 +2,13 @@
   background-color: #1a1a1a;
 
   .story-container {
-    max-width: 1200px;
+    max-width: 1200px; // Narrower width for better readability of centered text
     margin: 0 auto;
     padding: 8rem 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center; // Center children horizontally
+    text-align: center; // Center text content
   }
 
   .story-eyebrow {
@@ -24,12 +26,14 @@
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    width: 100%; // Ensure body takes full width of container
 
     p {
       font-family: var(--font-body);
       font-size: clamp(0.95rem, 1.1vw, 1.05rem);
       line-height: 1.8;
       color: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+      margin: 0; // Remove default paragraph margins
     }
 
     .story-voice {
@@ -55,9 +59,17 @@
     }
 
     .story-pull {
-      margin: 0.5rem 0;
+      margin: 0.5rem auto; // Center the block itself
       padding: 0.25rem 0 0.25rem 1.75rem;
+
+      /* Keep border-left but center the block */
       border-left: 2px solid var(--accent-secondary);
+
+      /* To make it look balanced when centered, you might prefer a top/bottom border instead, 
+         but if you want to keep the left border, we need to constrain its width so it doesn't stretch edge-to-edge */
+      max-width: 90%;
+      text-align: left; // Keep text left-aligned relative to the border for that "quote" feel
+
       font-family: var(--font-heading);
       font-size: clamp(1.2rem, 1.7vw, 1.5rem);
       font-style: italic;
@@ -76,11 +88,24 @@
     .story-container {
       padding: 5rem 1.5rem;
     }
+
+    .story-pull {
+      max-width: 100%; // Allow full width on mobile
+      padding-left: 1.25rem;
+    }
   }
 
   @media (max-width: 480px) {
     .story-container {
       padding: 4rem 1.25rem;
+    }
+
+    .story-eyebrow {
+      margin-bottom: 2rem;
+    }
+
+    .story-body {
+      gap: 1.25rem;
     }
   }
 }

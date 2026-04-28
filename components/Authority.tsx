@@ -1,10 +1,15 @@
+"use client";
 import Image from "next/image";
+import { useAuthorityAnimation } from "@/hooks/useAuthorityAnimation"; // Adjust path
 import "./Authority.scss";
 
 const Authority = () => {
+  const { containerRef } = useAuthorityAnimation();
+
   return (
     <section className="authority">
-      <div className="authority-container">
+      {/* Attach ref here */}
+      <div className="authority-container" ref={containerRef}>
         <div className="authority-content">
           <span className="authority-eyebrow">Why Listen to Mat?</span>
           <h2 className="authority-name">Hi, I&apos;m Mat Shaffer.</h2>
@@ -15,7 +20,7 @@ const Authority = () => {
             </p>
             <p>
               I don&apos;t deal in fluff. I deal in the raw, honest truths men
-              rarely share—because I&apos;ve heard them directly from the
+              rarely share, because I&apos;ve heard them directly from the
               source.
             </p>
             <p>
@@ -46,8 +51,9 @@ const Authority = () => {
               src="/images/author.webp"
               alt="Mat Shaffer"
               fill
-              sizes="(max-width: 768px) 100vw, 15vw"
+              sizes="(max-width: 768px) 100vw, 50vw" // Adjusted size for better loading
               style={{ objectFit: "cover", objectPosition: "center top" }}
+              priority // Important for LCP (Largest Contentful Paint)
             />
           </div>
         </div>

@@ -6,7 +6,7 @@ import ValueStack from "@/components/ValueStack";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
+
 import StickyBar from "@/components/StickyBar";
 
 export default function Home() {
@@ -21,7 +21,6 @@ export default function Home() {
       <Testimonials />
       <FinalCTA />
       <FAQ />
-      <Footer />
     </>
   );
 }

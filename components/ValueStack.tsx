@@ -1,3 +1,5 @@
+"use client";
+import { useValueStackAnimation } from "@/hooks/useValueStackAnimation"; // Adjust path
 import "./ValueStack.scss";
 
 const bonuses = [
@@ -32,9 +34,12 @@ const bonuses = [
 ];
 
 const ValueStack = () => {
+  const { containerRef } = useValueStackAnimation();
+
   return (
-    <section className="value-stack">
-      <div className="value-stack-container">
+    <section className="value-stack" id="value-stack">
+      {/* Attach ref here */}
+      <div className="value-stack-container" ref={containerRef}>
         {/* Left — intro + bonuses */}
         <div className="value-stack-left">
           <div className="value-stack-intro">

@@ -34,7 +34,7 @@ const StickyBar = () => {
               Guide + 9+ Hours of Workshops
             </span>
           </div>
-          <a href="#" className="sticky-bar-btn">
+          <a href="#value-stack" className="sticky-bar-btn">
             Get Instant Access - $37
           </a>
         </div>
