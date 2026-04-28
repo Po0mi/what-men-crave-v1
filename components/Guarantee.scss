@@ -1,0 +1,141 @@
+.guarantee {
+  background-color: #1a1a1a;
+  border-top: 1px solid color-mix(in srgb, #f9f7f2 8%, transparent);
+
+  .guarantee-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  /* ── Badge ─────────────────────────────────── */
+  .guarantee-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .guarantee-badge-inner {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border-radius: 50%;
+      border: 1px solid
+        color-mix(in srgb, var(--accent-secondary) 30%, transparent);
+    }
+  }
+
+  .guarantee-badge-number {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--accent-secondary);
+  }
+
+  .guarantee-badge-unit {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--bg-primary) 50%, transparent);
+    margin-bottom: 0.35rem;
+  }
+
+  .guarantee-badge-text {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--bg-primary) 40%, transparent);
+  }
+
+  /* ── Content ───────────────────────────────── */
+  .guarantee-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .guarantee-heading {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    color: var(--bg-primary);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+
+  .guarantee-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    p {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      line-height: 1.8;
+      color: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+    }
+
+    .guarantee-promise {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+      color: var(--bg-primary);
+      line-height: 1.6;
+    }
+  }
+
+  /* ── Responsive ────────────────────────────── */
+  @media (max-width: 768px) {
+    .guarantee-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 5rem 1.5rem;
+      justify-items: start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guarantee-container {
+      padding: 4rem 1.25rem;
+    }
+
+    .guarantee-badge-inner {
+      width: 150px;
+      height: 150px;
+    }
+
+    .guarantee-badge-number {
+      font-size: 2.75rem;
+    }
+  }
+}

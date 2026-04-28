@@ -1,0 +1,337 @@
+.value-stack {
+  background-color: #1a1a1a;
+  border-top: 1px solid color-mix(in srgb, #f9f7f2 8%, transparent);
+
+  .value-stack-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 460px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* ── Left column ───────────────────────────── */
+  .value-stack-intro {
+    margin-bottom: 3.5rem;
+  }
+
+  .value-stack-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .value-stack-heading {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--bg-primary);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .value-stack-lead {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    line-height: 1.8;
+    color: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+
+    strong {
+      color: var(--bg-primary);
+      font-weight: 600;
+    }
+  }
+
+  /* ── Bonus list ────────────────────────────── */
+  .bonus-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid color-mix(in srgb, var(--bg-primary) 10%, transparent);
+  }
+
+  .bonus-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--bg-primary) 10%, transparent);
+
+    // Mobile: Stack content vertically
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.5rem 0;
+    }
+  }
+
+  .bonus-left {
+    flex: 1;
+  }
+
+  .bonus-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+
+    // Mobile: Wrap meta if needed or adjust spacing
+    @media (max-width: 480px) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .bonus-tag {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+  }
+
+  .bonus-duration {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: color-mix(in srgb, var(--bg-primary) 35%, transparent);
+
+    &::before {
+      content: "·";
+      margin-right: 0.75rem;
+    }
+  }
+
+  .bonus-title {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    color: var(--bg-primary);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  .bonus-body {
+    font-family: var(--font-body);
+    font-size: clamp(0.875rem, 1vw, 0.95rem);
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  }
+
+  .bonus-value {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: color-mix(in srgb, var(--bg-primary) 30%, transparent);
+    white-space: nowrap;
+    padding-top: 1.75rem;
+
+    // Mobile: Align right or left depending on preference, here we keep it simple
+    @media (max-width: 480px) {
+      padding-top: 0;
+      align-self: flex-end; // Keep it to the right if space allows, or remove to stack
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+  }
+
+  /* ── Right column — pricing card ───────────── */
+  .value-stack-right {
+    position: sticky;
+    top: 5rem;
+
+    // Mobile: Remove sticky
+    @media (max-width: 900px) {
+      position: static;
+    }
+  }
+
+  .price-card {
+    border: 1px solid color-mix(in srgb, var(--bg-primary) 12%, transparent);
+    border-radius: 4px;
+    padding: 3.5rem;
+    background-color: color-mix(in srgb, var(--bg-primary) 4%, transparent);
+
+    // Mobile: Reduce padding
+    @media (max-width: 480px) {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  .price-card-label {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--bg-primary) 40%, transparent);
+    margin-bottom: 2rem;
+
+    @media (max-width: 480px) {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  }
+
+  .price-anchor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--bg-primary) 10%, transparent);
+
+    @media (max-width: 480px) {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    &--struck {
+      .price-label,
+      .price-amount {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: color-mix(in srgb, var(--bg-primary) 28%, transparent);
+        text-decoration: line-through;
+        text-decoration-color: color-mix(
+          in srgb,
+          var(--bg-primary) 18%,
+          transparent
+        );
+
+        @media (max-width: 480px) {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    &--today {
+      margin-top: 0.75rem;
+
+      .price-label {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+      }
+
+      .price-amount {
+        font-family: var(--font-heading);
+        font-style: italic;
+        font-size: 3.5rem;
+        font-weight: 400;
+        line-height: 1;
+        color: var(--accent-secondary);
+
+        // Mobile: Scale down price
+        @media (max-width: 480px) {
+          font-size: 2.75rem;
+        }
+      }
+    }
+  }
+
+  /* ── CTA ───────────────────────────────────── */
+  .value-stack-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .value-stack-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-radius: 3px;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease;
+
+    &:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  .value-stack-reassurance {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: color-mix(in srgb, var(--bg-primary) 30%, transparent);
+
+    @media (max-width: 480px) {
+      font-size: 0.7rem;
+      line-height: 1.4;
+    }
+  }
+
+  /* ── Responsive ────────────────────────────── */
+  @media (max-width: 900px) {
+    .value-stack-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 5rem 1.5rem;
+    }
+
+    .value-stack-intro {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .value-stack-container {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .value-stack-heading {
+      font-size: 1.75rem;
+    }
+
+    .value-stack-lead {
+      font-size: 1rem;
+    }
+  }
+}

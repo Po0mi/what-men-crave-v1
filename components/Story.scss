@@ -1,0 +1,86 @@
+.story {
+  background-color: #1a1a1a;
+
+  .story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .story-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+    margin-bottom: 2.75rem;
+  }
+
+  .story-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    p {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      line-height: 1.8;
+      color: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+    }
+
+    .story-voice {
+      font-family: var(--font-heading);
+      font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--bg-primary);
+
+      em {
+        color: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+      }
+    }
+
+    .story-turn {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(1.15rem, 1.5vw, 1.3rem);
+      font-weight: 400;
+      color: var(--bg-primary);
+      line-height: 1.4;
+    }
+
+    .story-pull {
+      margin: 0.5rem 0;
+      padding: 0.25rem 0 0.25rem 1.75rem;
+      border-left: 2px solid var(--accent-secondary);
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--bg-primary);
+
+      em {
+        font-style: normal;
+        color: var(--accent-secondary);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .story-container {
+      padding: 5rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .story-container {
+      padding: 4rem 1.25rem;
+    }
+  }
+}

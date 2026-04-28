@@ -1,0 +1,183 @@
+.authority {
+  background-color: #1a1a1a;
+  border-top: 1px solid color-mix(in srgb, #f9f7f2 8%, transparent);
+
+  .authority-container {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* ── Text column ───────────────────────────── */
+  .authority-content {
+    // Reduced from 10rem/8rem to be more reasonable, but still spacious
+    padding: 8rem 0 6rem;
+  }
+
+  .authority-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .authority-name {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--bg-primary);
+    line-height: 1.15;
+    margin-bottom: 2.25rem;
+  }
+
+  .authority-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+
+    p {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      line-height: 1.8;
+      color: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+    }
+
+    strong {
+      color: var(--bg-primary);
+      font-weight: 600;
+    }
+  }
+
+  /* ── Stats ─────────────────────────────────── */
+  .authority-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid color-mix(in srgb, #f9f7f2 8%, transparent);
+
+    // Mobile: Stack stats or reduce gap if they wrap
+    @media (max-width: 480px) {
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  .authority-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .authority-stat-number {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    line-height: 1;
+    color: var(--bg-primary);
+  }
+
+  .authority-stat-label {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--bg-primary) 38%, transparent);
+    white-space: nowrap;
+  }
+
+  /* ── Media column ──────────────────────────── */
+  .authority-media {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 6rem 0 4rem; // Reduced padding
+  }
+
+  .authority-photo-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 2px;
+
+    // Ensure image covers well on mobile
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* ── Responsive ────────────────────────────── */
+
+  // Tablet Breakpoint
+  @media (max-width: 900px) {
+    .authority-container {
+      grid-template-columns: 1fr; // Stack vertically
+      gap: 3rem;
+      padding: 0 1.5rem;
+    }
+
+    .authority-content {
+      padding: 4rem 0 0; // Remove bottom padding, let gap handle spacing
+      order: 2; // Optional: Put text below image on tablet? Remove if you want text first.
+    }
+
+    .authority-media {
+      padding: 4rem 0 0; // Remove bottom padding
+      order: 1; // Image first on tablet
+    }
+
+    .authority-photo-wrapper {
+      max-width: 100%; // Allow full width on tablet
+      aspect-ratio: 16 / 9; // Wider aspect ratio for tablet looks better
+    }
+  }
+
+  // Mobile Breakpoint
+  @media (max-width: 480px) {
+    .authority-container {
+      padding: 2rem 1.25rem;
+    }
+
+    .authority-content {
+      padding: 2rem 0 0;
+      text-align: left; // Keep left aligned or change to center if preferred
+    }
+
+    .authority-media {
+      padding: 2rem 0 0;
+    }
+
+    .authority-name {
+      font-size: 2rem; // Fixed size for mobile consistency
+      margin-bottom: 1.5rem;
+    }
+
+    .authority-body p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .authority-stats {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      gap: 1.5rem;
+    }
+
+    .authority-stat-number {
+      font-size: 1.75rem;
+    }
+  }
+}

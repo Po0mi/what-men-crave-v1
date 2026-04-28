@@ -1,0 +1,94 @@
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background-color: color-mix(in srgb, #1a1a1a 97%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid color-mix(in srgb, var(--accent-secondary) 25%, transparent);
+  padding: 0.9rem 0;
+
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s ease;
+
+  &--visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .sticky-bar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .sticky-bar-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .sticky-bar-title {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    color: var(--bg-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sticky-bar-meta {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: color-mix(in srgb, var(--bg-primary) 40%, transparent);
+    white-space: nowrap;
+  }
+
+  .sticky-bar-btn {
+    flex-shrink: 0;
+    display: inline-block;
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 3px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .sticky-bar-container {
+      padding: 0 1.25rem;
+      gap: 1rem;
+    }
+
+    .sticky-bar-info {
+      display: none;
+    }
+
+    .sticky-bar-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

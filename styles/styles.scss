@@ -1,0 +1,22 @@
+:root {
+  /* Backgrounds */
+  --bg-primary: #f9f7f2; /* Warm Alabaster */
+  --bg-secondary: #efece6; /* Slightly darker cream for cards/sections */
+
+  /* Text */
+  --text-primary: #1a1a1a; /* Soft Charcoal */
+  --text-secondary: #4a4a4a; /* Medium Gray for less important text */
+  --text-inverse: #f9f7f2; /* For use on dark buttons/sections */
+
+  /* Accents */
+  --accent-primary: #722f37; /* Deep Merlot (CTAs) */
+  --accent-hover: #5a232b; /* Darker Merlot */
+  --accent-secondary: #c5a059; /* Muted Gold (Bonuses/Stars) */
+
+  /* Utilities */
+  --border-light: #e0ddd5; /* Subtle borders for cards */
+  --shadow-soft: 0 4px 20px rgba(26, 26, 26, 0.08); /* Soft, warm shadow */
+
+  --font-heading: var(--font-newsreader);
+  --font-body: var(--font-inter);
+}

@@ -1,0 +1,195 @@
+.framework {
+  background-color: #1a1a1a;
+  border-top: 1px solid color-mix(in srgb, #f9f7f2 8%, transparent);
+
+  .framework-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem;
+  }
+
+  /* ── Intro ─────────────────────────────────── */
+  .framework-intro {
+    max-width: 1200px;
+    margin-bottom: 5rem;
+  }
+
+  .framework-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .framework-heading {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--bg-primary);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .framework-lead {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    line-height: 1.8;
+    color: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+
+    em {
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: var(--bg-primary);
+    }
+  }
+
+  /* ── List ──────────────────────────────────── */
+  .framework-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1200px;
+  }
+
+  .framework-item {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: 1.25rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--bg-primary) 10%, transparent);
+
+    &--last {
+      border-bottom: none;
+    }
+  }
+
+  .framework-number {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--accent-secondary);
+    padding-top: 0.2rem;
+
+    // Mobile: Ensure number doesn't shrink or get cut off
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+      min-width: 2rem; // Prevent squishing
+    }
+  }
+
+  .framework-item-title {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    color: var(--bg-primary);
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+
+    // Mobile: Slightly larger base size for readability
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .framework-item-body {
+    font-family: var(--font-body);
+    font-size: clamp(0.875rem, 1vw, 0.95rem);
+    line-height: 1.75;
+    color: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+    max-width: 90ch;
+
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  }
+
+  /* ── CTA ───────────────────────────────────── */
+  .framework-cta {
+    margin-top: 4.5rem;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 480px) {
+      margin-top: 3rem;
+      width: 100%;
+    }
+  }
+
+  .framework-btn {
+    display: inline-block;
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.75rem;
+    border-radius: 3px;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease;
+
+    // Mobile: Full width button for easier tapping
+    @media (max-width: 480px) {
+      width: 100%;
+      max-width: 320px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    &:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  /* ── Responsive ────────────────────────────── */
+  @media (max-width: 768px) {
+    .framework-container {
+      padding: 5rem 1.5rem;
+    }
+
+    .framework-intro {
+      margin-bottom: 3.5rem;
+    }
+
+    .framework-list {
+      max-width: 100%;
+    }
+
+    .framework-item {
+      gap: 1rem;
+      padding: 1.5rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .framework-container {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .framework-heading {
+      font-size: 1.75rem; // Fixed size for mobile consistency
+      margin-bottom: 1rem;
+    }
+
+    .framework-lead {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
