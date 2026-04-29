@@ -1,15 +1,58 @@
 "use client";
+
+import { useEffect, useRef } from "react";
 import { useHeroAnimation } from "@/hooks/useHeroAnimation"; // Adjust path as needed
 import "./Hero.scss";
 
 const Hero = () => {
   const { containerRef } = useHeroAnimation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Create an IntersectionObserver to watch the hero section
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // If the hero section is in view, play the video
+          video.play().catch((error) => {
+            console.error("Error playing video:", error);
+          });
+        } else {
+          // If the hero section is out of view, pause the video
+          video.pause();
+        }
+      },
+      { threshold: 0.5 }, // Trigger when 50% of the hero section is visible
+    );
+
+    // Start observing the hero container
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    // Clean up the observer on unmount
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [containerRef]);
 
   return (
     <section className="hero" id="hero">
       {/* Attach ref here */}
       <div className="hero-container" ref={containerRef}>
-        <video autoPlay muted loop playsInline className="hero-video">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-video"
+        >
           <source src="/video/hero-bg.webm" type="video/webm" />
         </video>
         <div className="hero-overlay" />
