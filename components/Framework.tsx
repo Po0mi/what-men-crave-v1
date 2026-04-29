@@ -1,42 +1,41 @@
 "use client";
 import { useFrameworkAnimation } from "@/hooks/useFrameworkAnimation"; // Adjust path
 import "./Framework.scss";
-
 const cravings = [
   {
     number: "01",
     title: "Presence > Performance",
-    body: "Why being 'in your body' beats any sexual technique you've ever learned. How to stop managing the experience and start feeling it.",
+    body: "Why being fully in your body creates deeper intimacy than any technique or performance ever could.",
   },
   {
     number: "02",
     title: "Desire (Not Just Receptivity)",
-    body: "Men are starving to feel wanted. Learn how to show him you desire HIM, not just the act of sex. The difference between 'willingness' and 'hunger' changes everything.",
+    body: "Men don’t just want permission. They want to feel actively wanted, not just accepted.",
   },
   {
     number: "03",
     title: "Confidence & Ownership",
-    body: "Stop making your pleasure a puzzle he has to solve. How to own your arousal without apology, and why guiding his hand is the hottest form of communication.",
+    body: "How to stop overthinking your pleasure and start owning it naturally, without hesitation or apology.",
   },
   {
     number: "04",
     title: "The Language of Touch",
-    body: "Your hands speak a language he's listening to. How to use curious, exploratory touch to help him discover pleasures he didn't even know he had.",
+    body: "How subtle, intentional touch communicates curiosity, confidence, and emotional connection without words.",
   },
   {
     number: "05",
     title: "Polarity & The Dance",
-    body: "Why sameness kills attraction. How to surrender into receiving to invite him to step fully into his masculine giving. Creating the electric spark through energetic balance.",
+    body: "Why attraction fades when energy becomes neutral, and how contrast creates emotional and physical tension.",
   },
   {
     number: "06",
     title: "The Unspoken Words",
-    body: "Men are starving for verbal acknowledgment. The specific phrases, sounds, and moments of validation that empower him and deepen his connection to you.",
+    body: "The quiet affirmations and signals men crave but rarely receive, and how they deepen emotional safety.",
   },
   {
     number: "07",
-    title: "The Aftermath (The Bonding Window)",
-    body: "The 30 seconds after sex are when emotional attachment happens, or fails. How to close the experience so he feels closer, safer, and more connected to you.",
+    title: "The Aftermath",
+    body: "Why the moments right after intimacy shape emotional attachment more than the act itself.",
   },
 ];
 
